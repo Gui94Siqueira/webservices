@@ -1,8 +1,10 @@
 <?php
 
-class controllerUsuarios {
+class controllerUsuarios
+{
 
-    public function listarUsuarios() {
+    public function listarUsuarios()
+    {
         try {
             $modelUsuarios = new modelUsuarios();
             return $modelUsuarios->listarUsuarios();
@@ -11,16 +13,18 @@ class controllerUsuarios {
         }
     }
 
-    public function cadastrarUsuario($nome, $sobrenome, $email, $senha) {
+    public function cadastrarUsuario($nome, $sobrenome, $email, $senha)
+    {
         try {
             $modelUsuarios = new modelUsuarios();
             return $modelUsuarios->cadastrarUsuario($nome, $sobrenome, $email, $senha);
-        } catch(PDOException $e) {
+        } catch (PDOException $e) {
             return false;
         }
     }
 
-    public function atualizarUsuario($nome, $sobrenome, $email, $senha, $id_status, $id_usuario) {
+    public function atualizarUsuario($nome, $sobrenome, $email, $senha, $id_status, $id_usuario)
+    {
         try {
             $modelUsuarios = new modelUsuarios();
             return $modelUsuarios->atualizarUsuario($nome, $sobrenome, $email, $senha, $id_status, $id_usuario);
@@ -29,6 +33,13 @@ class controllerUsuarios {
         }
     }
 
+    public function autenticarUsuario($email, $senha)
+    {
+        try {
+            $modelUsuarios = new modelusuarios();
+            return $modelUsuarios->autenticarUsuario($email, $senha);
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
 }
-
-?>
